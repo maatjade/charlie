@@ -258,7 +258,8 @@
     if (dur) { cat.classList.add("walking"); clearTimeout(go.t); go.t = setTimeout(() => cat.classList.remove("walking", "left"), dur * 1000); }
     cat.style.transform = `translateX(${x - 35}px)`;
     $("tlWalked").style.width = (x - STEP / 2) + "px";
-    $("tlBubble").textContent = i === 0 ? "¿Se van? 🥺" : i === 17 ? "¡Vuelven! 🎉" : TRIP[i] === today ? "¡Hola! 🐾" : TRIP[i] > today ? "Zzz 💤" : "Miau 🐾";
+    const MSGS = ["Te espero 🐾", "¿Me traes un Churu? 🎁", "Miau 🧡", "¿Jugamos con el pescado? 🐟", "Háblame un ratito 🗣️", "Agua fresquita, porfa 💧", "Estoy en la cama 🛏️", "¡Ya falta menos! 🏠", "Prrr… 😺", "¿Me abres la ventana? 🪟", "Extraño a mis humanos 🥺", "Lady Charlotte te saluda 👑", "Mi plato, mi reino 🍽️", "Miau miau 🐾", "Hoy toca Churu 🎁", "¡Casi vuelven! 🎉"];
+    $("tlBubble").textContent = i === 0 ? "¿Se van? 🥺" : i === 17 ? "¡Vuelven! 🎉" : TRIP[i] === today ? "¡Hola! 🐾" : MSGS[(i - 1) % MSGS.length];
     document.querySelectorAll(".tl-day").forEach((b, j) => b.classList.toggle("sel", j === i));
     catX = x;
     const sc = $("tlScroll");
